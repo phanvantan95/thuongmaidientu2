@@ -1,16 +1,16 @@
-# Homework 1 - *Name of App*
+# Homework 1 - deadline tuan 2
 
 **Name of your app** Trang web cho phép người dùng chia sẻ và cập nhật trạng thái. Due Date: 24:00 11/10/2016
 
-Danh sách sinh viên: **Your Name Here**
+Danh sách sinh viên: 1312514 Phan Văn Tân, 1312119 Đoàn Tiến Đạt
 
-URL: **Insert your Heroku URL here**
+URL: http://deadlinetuan2.herokuapp.com/
 
 ## Chức năng
 
 Danh sách chức năng **bắt buộc**:
 
-* [ ] Người dùng được phép đăng nhập bằng tên tài khoản, mật khẩu.
+* [x] Người dùng được phép đăng nhập bằng tên tài khoản, mật khẩu.
 * [ ] Người dùng có thể đăng trạng thái lên trang cá nhân.
 * [ ] Ở trang home, người dùng có thể xem trạng thái của bạn bè và những người đang được người đó follow. Cần thể hiện đầy đủ thông tin của trạng thái như hình ảnh, avatar,...
 * [ ] Người dùng có thể tìm kiếm người dùng khác
@@ -48,7 +48,8 @@ Quy trình sử dụng [GIT Workflow](https://www.atlassian.com/git/tutorials/co
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github)
+![Video Walkthrough](signinup.gif)
+![Video Walkthrough](signinup.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

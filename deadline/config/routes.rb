@@ -1,11 +1,31 @@
 Rails.application.routes.draw do
 
-  resources :events
   resources :posts
+  resources :comments, only: [:create, :destroy]
   devise_for :users
-  root to: 'home#front'
+  resources :users do
+    member do
+      get :friends
+      get :followers
+      get :deactivate
+      get :mentionable
+    end
+  end
+  resources :events, except: [:edit, :update]
 
-  get 'home/front'
+  authenticated :user do
+    root to: 'home#index', as: 'home'
+  end
+  unauthenticated :user do
+    root 'home#front'
+  end
+
+  match :follow, to: 'follows#create', as: :follow, via: :post
+  match :unfollow, to: 'follows#destroy', as: :unfollow, via: :post
+  match :like, to: 'likes#create', as: :like, via: :post
+  match :unlike, to: 'likes#destroy', as: :unlike, via: :post
+  match :find_friends, to: 'home#find_friends', as: :find_friends, via: :get
+  match :about, to: 'home#about', as: :about, via: :get
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
