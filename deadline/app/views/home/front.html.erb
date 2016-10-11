@@ -1,2 +1,50 @@
 <h1>Home#front</h1>
 <p>Find me in app/views/home/front.html.erb</p>
+
+<div id="activities">
+	  <%= render_activities(@activities)%>
+	<div>
+
+<%= form_for(@post) do |f| %>
+  <div class="form-group">
+    <%= f.label 'Update status' %><br>
+      <%= f.text_area :content, class: 'form-control', autofocus: true, 
+          placeholder: 'What\'s up?' %>
+      <%= f.file_field :attachment, class: 'form-control' %>
+  </div>
+  <%= f.submit :post, class: 'btn btn-primary'%>
+<% end %>
+
+
+<% if current_user.liked? likeable %>
+  <%= form_tag unlike_path(likeable_type: likeable.class.to_s, likeable_id: likeable.id), method: :post, remote: true do %>
+    <% button_tag class: 'btn btn-block liked' do %>
+      <%= fa_icon 'thumbs-up' %> unlike
+    <% end %>
+  <% end %>
+<% else %>
+  <%= form_tag like_path(likeable_type: likeable.class.to_s, likeable_id: likeable.id), remote: true do %>
+    <% button_tag class: 'btn btn-block' do %>
+      <%= fa_icon 'thumbs-up' %> like
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= form_tag comments_path(commentable_type: commentable.class.to_s, commentable_id: commentable.id), method: :post, remote: true do %>
+  <div class="form-group">
+    <%= text_area_tag :comment_text, nil, placeholder: 'Enter Comment', class: 'form-control' %>
+  </div>
+  <%= submit_tag :comment, class: 'btn btn-primary' %>
+<% end %>
+
+<div class="follow">
+  <% if user.followed_by?(current_user) %>
+    <%= form_tag unfollow_path(user_id: user.id), method: :post, remote: true do %>
+      <%= button_tag 'unfollow', class: 'btn btn-primary' %>
+    <% end %>
+  <% else %>
+    <%= form_tag follow_path(user_id: user.id), method: :post, remote: true do %>
+      <%= button_tag 'follow', class: 'btn btn-success' %>
+    <% end %>
+  <% end %>
+</div>
