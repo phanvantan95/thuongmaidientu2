@@ -276,6 +276,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pg (0.19.0)
     populator (1.0.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -411,6 +412,7 @@ DEPENDENCIES
   jquery-atwho-rails
   jquery-rails
   letter_opener
+  pg
   populator
   public_activity
   rails (= 5.0.0)

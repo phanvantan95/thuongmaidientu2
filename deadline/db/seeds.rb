@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Post.create!(attachment: 'this is the first blog', content: 'this is the first comment')
+Post.create!(attachment: 'this is the first blog', content: 'this is the first comment')
